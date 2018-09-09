@@ -13,6 +13,7 @@ public class Tester
         Node obj1; //8 bytes for the reference
         obj1 = new Node();//28 bytes
         
+        //Node obj3 = new Node("Ahmed", 18, null);
         obj1.name = "Ali";
         obj1.age = 20;
         
@@ -22,6 +23,10 @@ public class Tester
         obj2.name = "Ahmed";
         
         
+        Node obj3 = obj2;
+        obj3 = new Node();
+        obj3.name = obj2.name;
+        obj3.age = obj1.age;
         
         
         
