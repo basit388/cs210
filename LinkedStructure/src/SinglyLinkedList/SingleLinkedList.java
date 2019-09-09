@@ -30,6 +30,12 @@ public class SingleLinkedList
         return null;
     }
     
+    
+    
+    
+    
+    
+    
     public void insert(int v)
     {
         //we always insert in the begining to reduce to overhead.
@@ -40,7 +46,12 @@ public class SingleLinkedList
             return;
         }
         //head is not null
-        Node temp = new Node(v,head);
+        //Node temp = new Node(v,head);
+        
+        Node temp = new Node();
+        temp.val=v;
+        temp.next = head;
+        
         head = temp;
         size++;
         return;

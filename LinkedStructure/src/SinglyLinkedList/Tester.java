@@ -10,17 +10,21 @@ public class Tester
         
         L.insert(10);
         L.insert(20);
+        
+        System.out.println(L.remove(50));
+        
+        System.out.println(L);
+        
+        System.out.println(L.search(30));
+        
         L.insert(30);
         L.insert(40);
-
         System.out.println(L);
         
-        System.out.println(L.search(40).val);
-        
-        L.remove(20);
+        L.remove(10);
         System.out.println(L);
-
         
-        
+        L.remove(40);
+        System.out.println(L);
     }
 }
