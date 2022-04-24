@@ -20,6 +20,15 @@ public class SelectionSort
 
         this.order=order;
         
+        int N = A.length;
+        for (int i = 0; i < N; i++)
+        {
+            int min = i;
+            for (int j = i+1; j < N; j++)
+                if (less(A[j], A[min]))
+                    min = j;
+                swap(i, min);
+        }  
         
         
         writeOutput(array);

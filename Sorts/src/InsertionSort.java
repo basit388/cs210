@@ -2,11 +2,7 @@
 //April 2, 2020
 //CS210
 
-/*
 
-TO DO: INCOMPLETE CODE. WRITE CODE TO COMPLETE
-
-*/
 
 public class InsertionSort 
 {
@@ -22,13 +18,23 @@ public class InsertionSort
         
         
         
+        int N = A.length;
+        for (int i = 0; i < N; i++)
+            for (int j = i; j > 0; j--)
+                if (less(A[j], A[j-1]))
+                    swap(j, j-1);
+                else 
+                    break;
+        
+        
+        
         writeOutput(array);
     }
     
     private boolean less(int x, int y)
     {
-        if(order) return x > y;
-        return x < y;
+        if(order) return x < y;
+        return x > y;
     }
     
     private void swap(int i, int j)
