@@ -10,7 +10,7 @@ public class Node
     private int age;
     private String name;
     Node next;
-
+    
     public int getAge() {
         return age;
     }
