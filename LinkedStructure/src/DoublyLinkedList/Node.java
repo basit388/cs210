@@ -4,9 +4,9 @@ package DoublyLinkedList;
  
 public class Node 
 {
-    Node prev;
-    Node next;
-    int val;
+    public Node prev;
+    public Node next;
+    public int val;
     
     public Node()
     {

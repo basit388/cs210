@@ -4,8 +4,8 @@ package CircularList;
  
 public class CircularList 
 {
-    int size;
-    Node Cursor;
+    public int size;
+    public Node Cursor;
     
     public CircularList()
     {

@@ -4,9 +4,9 @@ package DoublyLinkedList;
  
 public class DoublyLinkedList 
 {
-    Node Head;
-    Node Tail;
-    int size;
+    public Node Head;
+    public Node Tail;
+    public int size;
     public DoublyLinkedList()
     {
         Head = Tail = null;
