@@ -5,7 +5,7 @@
  */
 package Tutorial1;
     
-public class Q1 {
+public class Q1 {   
     public static void main(String[] str) {
         if (str.length < 3) 
         {
