@@ -117,6 +117,10 @@ class Node
         else
             return 0;
     }
+    public String toString()
+    {
+        return key + " " + val;
+    }
 }
 
 
@@ -139,6 +143,8 @@ public class Main
             //System.out.println(B.get(30).val);
             B.delete(10);
             System.out.println(B.Inorder(B.root));
+            
+            //System.out.println(B.get(18));
             
         }
 }
