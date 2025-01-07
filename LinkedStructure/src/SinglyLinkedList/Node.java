@@ -4,17 +4,17 @@ package SinglyLinkedList;
  
 public class Node 
 {
-    public int val;
+    public int key;
     public Node next;
     
     public Node()
     {
-        val=0;
+        key=0;
         next = null;
     }
     public Node(int v, Node n)
     {
-        val = v;
+        key = v;
         next = n;
     }
 }
