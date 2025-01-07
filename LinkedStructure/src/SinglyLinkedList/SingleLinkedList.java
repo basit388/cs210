@@ -1,7 +1,8 @@
 package SinglyLinkedList;
 
 // Basit Qureshi Jan 28, 2018 2:44:04 PM
- 
+// updated March 2024
+
 public class SingleLinkedList 
 {
     public Node head;
@@ -20,42 +21,65 @@ public class SingleLinkedList
     
     public Node search(int v)
     {
-        Node temp = head;
-        while(temp!=null)
+        Node itr = head;
+        while(itr!=null)
         {
-            if(temp.val==v)
-                return temp;
-            temp = temp.next;
+            if(itr.key==v)
+                return itr;
+            itr = itr.next;
         }
         return null;
     }
     
-    
-    
-    
-    
-    
-    
+       
     public void insert(int v)
     {
-        //we always insert in the begining to reduce to overhead.
+        //it is cheaper to insert in the begining
+        //check if the list is empty
         if(head==null)
         {
             head = new Node(v,null);
             size++;
             return;
         }
-        //head is not null
-        //Node temp = new Node(v,head);
         
-        Node temp = new Node();
-        temp.val=v;
-        temp.next = head;
+        //assert: head is not null, so list is not empty
+        //create a new node
+        Node N = new Node();
+        N.key = v;
+        N.next = head;
         
-        head = temp;
+        head = N;
         size++;
         return;
     }
+    public void insertEnd(int v)
+    {
+        //check if the list is empty
+        if(head==null)
+        {
+            head = new Node(v,null);
+            size++;
+            return;
+        }
+        
+        //create a new node
+        Node N = new Node();
+        N.key = v;
+        N.next = null;
+        
+        //we iterate to the end of the list
+        Node itr = head;
+        while(itr.next!=null)
+            itr = itr.next;
+        
+        //point the lastnode.next to the new node N
+        itr.next= N;
+        
+        size++;
+        return;
+    }
+
     
     public boolean remove(int v)
     {
@@ -65,7 +89,7 @@ public class SingleLinkedList
         
         //now we may have two cases
         //1. if node with v happens to be the head
-        if(head.val == v)
+        if(head.key == v)
         {
             head = head.next;
             size--;
@@ -73,21 +97,21 @@ public class SingleLinkedList
         }
         
         //2. if node is somewhere inside the list
-        //we use a prev reference to point to a node that occurs before the temp
+        //we use a before reference to point to a node that occurs before the temp
         
-        Node prev = head;
-        Node temp = head.next;
-        while(temp!=null)
+        Node before = head;
+        Node itr = head.next;
+        while(itr!=null)
         {
-            if(temp.val==v)
+            if(itr.key==v)
             {
                 //we found it!
-                prev.next = temp.next;
+                before.next = itr.next;
                 size--;
                 return true;
             }
-            prev = temp;
-            temp = temp.next;
+            before = itr;
+            itr = itr.next;
             
         }
         // At this time we can assert that we failed to find v in the list
@@ -98,11 +122,11 @@ public class SingleLinkedList
     public String toString()
     {
         String str = "";
-        Node temp = head;
-        while(temp!=null)
+        Node itr = head;
+        while(itr!=null)
         {
-            str = str + "["+temp.val+"]";
-            temp = temp.next;
+            str = str + "["+itr.key+"]";
+            itr = itr.next;
         }
         return str;
     }
