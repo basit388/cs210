@@ -6,15 +6,16 @@ public class Node
 {
     public int val;
     public Node next;
+    public Node prev;
     
     public Node()
     {
         val=0;
-        next=null;
+        next=prev=null;
     }
     public Node(int v)
     {
         val = v;
-        next = null;
+        next = prev=null;
     }
 }
