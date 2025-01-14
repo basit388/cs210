@@ -9,7 +9,7 @@ public class CircularList
     
     public CircularList()
     {
-        size =0;
+        size = 0;
         Cursor = null;
     }
     public boolean isEmpty()
@@ -19,27 +19,33 @@ public class CircularList
     
     public void insert(int x)
     {
-        Node N= new Node(x);
+        Node N = new Node(x);
         if(size==0)
         {
             Cursor = N;
             Cursor.next = Cursor;
+            Cursor.prev = Cursor;
 
         }
         else if(size==1)
         {
             
             N.next = Cursor;
+            N.prev = Cursor;
             Cursor.next = N;
+            Cursor.prev = N;
         }
         else
         {
             N.next = Cursor.next;
+            N.prev = Cursor;
             Cursor.next = N;
+            N.next.prev = N;
         } 
         size++;
         return; 
     }
+    
     public Node search(int x)
     {
         if(size==0)
@@ -53,25 +59,30 @@ public class CircularList
         return null;
     }
     
-    public boolean remove(int x)
+    public Node remove(int x)
     {
         if(size==0)
-            return false;
+            return null;
         
         for(int i=0;i<size;i++)
         {
-            if(Cursor.next.val==x)
+            if(Cursor.val==x)
             {
-                Cursor.next = Cursor.next.next;
+                Node Before = Cursor.prev;
+                Node After = Cursor.next;
+                Before.next = After;
+                After.prev = Before;
+                
+                Node toDelete = Cursor;
+                //reset cursor
+                Cursor = After;
                 size--;
-                return true;
+                return toDelete;
             }
             Cursor = Cursor.next;
         }
-        //1. either Cursor is behind the search value
-        //2. we failed to find x
        
-        return false;
+        return null;
     
     }
     public String toString()
